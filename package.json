@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "nodemon",
     "start": "node index.js",
-    "test": "jest --watch"
+    "test": "jest --forceExit"
   },
   "jest": {
     "testEnvironment": "node"

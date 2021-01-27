@@ -1,3 +1,4 @@
+const path = require("path")
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -6,7 +7,7 @@ module.exports = {
       filename: './data/schemes.db3',
     },
     migrations: {
-      directory: './data/migrations'
+      directory: path.join(__dirname, "data/migrations")
     },
     seeds: {
       directory: './data/seeds'
@@ -17,6 +18,14 @@ module.exports = {
         // runs after a connection is made to the sqlite engine
         conn.run('PRAGMA foreign_keys = ON', done); // turn on FK enforcement
       },
+    },
+  },
+  test: {
+    client: "sqlite3",
+    connection: ":memory:",
+    useNullAsDefault: true,
+    migrations: {
+      directory: path.join(__dirname, "data/migrations")
     },
   },
 }
